@@ -1,0 +1,37 @@
+﻿@model CapstoneJesseGajda.Models.WorkoutList
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div>
+    <h1>Custom Exercise Selected: @ViewBag.Exercise_Name</h1>
+    <section class="main-container-workoutlist">
+        <article class="workoutSix-intro">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <ul>
+                                <li>@ViewBag.ExerciseOne</li>
+                                <li>@ViewBag.ExerciseTwo</li>
+                                <li>@ViewBag.ExerciseThree</li>
+                                <li>@ViewBag.ExerciseFour</li>
+                                <li>@ViewBag.ExerciseFive</li>
+                                <li>@ViewBag.ExerciseSix</li>
+                                <li>@ViewBag.ExerciseSeven</li>
+                                <li>@ViewBag.ExerciseEight</li>
+                                <li>@ViewBag.ExerciseNine</li>
+                                <li>@ViewBag.ExerciseTen</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        </section>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.WorkoutId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

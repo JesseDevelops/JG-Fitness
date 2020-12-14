@@ -1,0 +1,86 @@
+﻿@model CapstoneJesseGajda.Models.WorkoutList
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+       var user = await UserManager.GetUserAsync(User);
+        var userGeneratedID = user.Id;
+    <h2>Create a new workout!</h2>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="@Model.Exercise_Name"  class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Exercise_One" class="control-label"></label>
+                    <select class="form-control" id="indexExerciseTwo" asp-for="@Model.Exercise_One" asp-items="@ViewBag.ExerciseID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Exercise_Two" class="control-label"></label>
+                    <select class="form-control" id="indexExerciseTwo" asp-for="@Model.Exercise_Two" asp-items="@ViewBag.ExerciseID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Exercise_Three" class="control-label"></label>
+                    <select class="form-control" id="indexExerciseTwo" asp-for="@Model.Exercise_Three" asp-items="@ViewBag.ExerciseID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Exercise_Four" class="control-label"></label>
+                    <select class="form-control" id="indexExerciseTwo" asp-for="@Model.Exercise_Four" asp-items="@ViewBag.ExerciseID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Exercise_Five" class="control-label"></label>
+                    <select class="form-control" id="indexExerciseTwo" asp-for="@Model.Exercise_Five" asp-items="@ViewBag.ExerciseID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Exercise_Six" class="control-label"></label>
+                    <select class="form-control" id="indexExerciseTwo" asp-for="@Model.Exercise_Six" asp-items="@ViewBag.ExerciseID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Exercise_Seven" class="control-label"></label>
+                    <select class="form-control" id="indexExerciseTwo" asp-for="@Model.Exercise_Seven" asp-items="@ViewBag.ExerciseID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Exercise_Eight" class="control-label"></label>
+                    <select class="form-control" id="indexExerciseTwo" asp-for="@Model.Exercise_Eight" asp-items="@ViewBag.ExerciseID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Exercise_Nine" class="control-label"></label>
+                    <select class="form-control" id="indexExerciseTwo" asp-for="@Model.Exercise_Nine" asp-items="@ViewBag.ExerciseID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Exercise_Ten" class="control-label"></label>
+                    <select class="form-control" id="indexExerciseTwo" asp-for="@Model.Exercise_Ten" asp-items="@ViewBag.ExerciseID"></select>
+                </div>
+                <div class="form-group" id="createUserIdWorkout">
+                    <label asp-for="UserId" class="control-label"></label>
+                    <input asp-for="UserId" value="@userGeneratedID" readonly class="form-control" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+}
+<link rel="stylesheet" type="text/css" href="~/css/WorkoutList.css" />
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

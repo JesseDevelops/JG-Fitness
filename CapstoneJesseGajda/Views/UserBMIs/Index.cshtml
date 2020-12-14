@@ -1,0 +1,140 @@
+﻿@model IEnumerable<CapstoneJesseGajda.Models.UserBMI>
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var user = await UserManager.GetUserAsync(User);
+    var userGeneratedID = user.Id;
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-6">
+            <h2>BMI PROGRESS TABLE</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+            <p>
+                <a id="createBMIBtn" asp-action="Create">Calculate BMI</a>
+            </p>
+        </div>
+    </div>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BMI)
+                </th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Where(x => x.UserId == userGeneratedID).OrderBy(x => x.Date))
+            {
+
+
+                @if (item.BMI > 25 && item.BMI < 31)
+                {
+                    <tr style="background:#FF8C00">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BMI)
+                        </td>
+
+                        <td>Overweight</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Bmi_Id">Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Bmi_Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+                @if (item.BMI > 31)
+                {
+                    <tr style="background:#FF0000">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BMI)
+                        </td>
+
+                        <td>Obese</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Bmi_Id">Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Bmi_Id">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+                @if (item.BMI < 25 && item.BMI > 18.5)
+                {
+                    <tr style="background:#ADFF2F">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BMI)
+                        </td>
+
+                        <td>Normal</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Bmi_Id">Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Bmi_Id">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+                @if (item.BMI < 18.5)
+                {
+                    <tr style="background:#FFFF33">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BMI)
+                        </td>
+
+                        <td>Underweight</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Bmi_Id">Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Bmi_Id">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+
+
+
+            }
+        </tbody>
+    </table>
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <p>
+                BMI calculator based on 2013 AHA/ACC/TOS Guideline for the Management of Overweight and Obesity in Adults: A Report of the American College of Cardiology/American Heart
+                Association Task Force on Practice Guidelines and The Obesity Society. BMI classification. World Health Organization. Adapted by Mayo Foundation for Medical Education Research.
+
+                Privacy Assurance: Information that is saved will not be sent to any website.
+            </p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+}
+    <link rel="stylesheet" type="text/css" href="~/css/BMI.css" />

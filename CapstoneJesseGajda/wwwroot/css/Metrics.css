@@ -1,0 +1,30 @@
+﻿body {
+}
+
+#createUserIdMetrics{
+    opacity:0;
+}
+#userIdIndex{
+    opacity: 0;
+}
+
+#indexMetricsExerciseddl{
+    width:25%;
+}
+
+.index-end-exercise .jumbotron {
+    padding: 100px 60px;
+    background-image: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),url('../images/crossfit-534615_1280.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0px;
+}
+
+
+    .index-end-exercise .jumbotron h1 {
+        font-size: 43px;
+        color: white;
+    }
+#indexExerciseTag{
+    font-size: 25px;
+}

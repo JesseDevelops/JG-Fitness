@@ -1,0 +1,45 @@
+﻿@model CapstoneJesseGajda.Models.UserBMI
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit User BMI</h2>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Bmi_Id" />
+
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BMI" class="control-label"></label>
+                <input asp-for="BMI" readonly class="form-control" />
+                <span asp-validation-for="BMI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="editBMIBtn" value="Save" class="btn btn-default" />
+            </div>
+            <div class="form-group" id="editHidden">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" readonly class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to BMI Chart</a>
+</div>
+<link rel="stylesheet" type="text/css" href="~/css/BMI.css" />
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="homepage-container">
+    <article class="homepage-intro">
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Fitness Made Simple</h1>
+                        <p>The best personal training app to help you get(and stay) in the best shape of your life</p>
+                        <a class="col-xs-6 col-sm-5 col-md-2 col-sm-offset-2 col-md-offset-5" id="loginBtn" asp-area="Identity" asp-page="/Account/Login">Let's Get Fit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="homepage-middle">
+        <div class="container content">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="thumbnail adjust1">
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <img class="media-object img-rounded img-responsive" src="~/images/male-2634974_640.jpg">
+                                    </div>
+                                    <div class="col-md-10 col-sm-10 col-xs-12">
+                                        <div class="caption">
+                                            <p class="text-info lead adjust2">Amazing Community, Amazing Site!</p>
+                                            <p><span class="glyphicon glyphicon-thumbs-up"></span> At first I was a bit skeptical but after using this site for 
+                                            over a few weeks I can tell you I haven't used anything like it. The community behind it is amazing, the selection of exercises are great. 
+                                            Admins are always present and listen to the feedback. I love my time here!</p>
+                                            <blockquote class="adjust2">
+                                                <p>Max Morawski</p>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="thumbnail adjust1">
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <img class="media-object img-rounded img-responsive" src="~/images/girl-1848958_640.jpg">
+                                    </div>
+                                    <div class="col-md-10 col-sm-10 col-xs-12">
+                                        <div class="caption">
+                                            <p class="text-info lead adjust2">I FEEL CONFIDENT NOW!!</p>
+                                            <p><span class="glyphicon glyphicon-thumbs-up"></span> I used this app to track my progress and get help from the community. I have lost so much
+                                            weight over the my time here on this app. I couldn't have done it without them! Thank you JGFitness!!!!!!</p>
+                                            <blockquote class="adjust2">
+                                                <p>Vanessa Gajda</p>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="thumbnail adjust1">
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <img class="media-object img-rounded img-responsive" src="~/images/man-1342457_640.jpg">
+                                    </div>
+                                    <div class="col-md-10 col-sm-10 col-xs-12">
+                                        <div class="caption">
+                                            <p class="text-info lead adjust2">Best Fitness App I Used Yet!</p>
+                                            <p><span class="glyphicon glyphicon-thumbs-up"></span> This app was super easy to use and kept me on track. Everyday I was able to come in
+                                            interact with others, create new workout plans for myself or track my current progress! Wouldn't recommend any other app but this one.</p>
+                                            <blockquote class="adjust2">
+                                                <p>Abhijit Goswami</p> 
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="homepage-end">
+        <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Ready To Try JGFitness Workout?</h3>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
+                    <a  id="registerBtn" asp-area="Identity" asp-page="/Account/Register">Start Now</a>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+    </article>
+
+</section>
+<link rel="stylesheet" type="text/css" href="~/css/Homepage.css" />

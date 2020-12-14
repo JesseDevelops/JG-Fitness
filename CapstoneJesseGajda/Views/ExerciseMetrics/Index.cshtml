@@ -1,0 +1,85 @@
+﻿@model IEnumerable<CapstoneJesseGajda.Models.ExerciseMetrics>
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var user = await UserManager.GetUserAsync(User);
+    var userGeneratedID = user.Id;
+
+    <h2>Exerise Metric Displayer</h2>
+
+    <p>
+        <a asp-action="Create">Create New Exercise Metric</a>
+    </p>
+    <form asp-action="Index" method="get">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <p>Exercise:</p>
+                    <select class="form-control" id="indexMetricsExerciseddl" asp-for="@Model.FirstOrDefault().ExerciseId" asp-items="@ViewBag.ExerciseID"></select>
+                    <input  type="submit" value="Sort By Exercise" />
+                    <input value="@userGeneratedID" name="userId" id="userIdIndex" readonly />
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <p id="indexExerciseTag">@ViewBag.ExerciseName</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Lowest Weight(Kg)
+                </th>
+                <th>
+                    Average Weight(Kg)
+                </th>
+                <th>
+                    Highest Weight(Kg)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @ViewBag.MinWeight
+                </td>
+                <td>
+                    @ViewBag.AvgWeight
+                </td>
+                <td>
+                    @ViewBag.MaxWeight
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <article class="index-end-exercise">
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7"></div>
+                    <div class="col-sm-5">
+                        <h1>
+                            If my mind can conveive it and my heart can believe it - then I can achieve it.
+                        </h1>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+}
+<link rel="stylesheet" type="text/css" href="~/css/Metrics.css" />

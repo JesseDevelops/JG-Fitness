@@ -1,0 +1,43 @@
+﻿body {
+}
+
+.main-container{
+    padding-top: 0px;
+}
+
+
+
+.index-intro .jumbotron {
+    padding: 100px 60px;
+    background-image: url('../images/dumbbell-1966704_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin:0px;
+}
+.index-intro .jumbotron h1 {
+        font-size: 63px;
+        color:white;
+}
+
+.index-middle{
+    padding-top:5px;
+}
+    .index-middle .jumbotron {
+        padding: 100px 120px;
+        /*background-image: url('../images/lakeedit.jpg');Fallback IMG no background gradient(black)*/
+        background-image: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),url('../images/lakeedit.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0px;
+    }
+
+.index-middle .jumbotron h1 {
+    font-size: 63px;
+    color: white;
+}
+    .index-middle .jumbotron p {
+       color:white;
+       -webkit-text-stroke:0.5px black;
+       padding-top:75px;
+       font-size:27px;
+    }

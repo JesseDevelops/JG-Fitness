@@ -1,0 +1,14 @@
+﻿body {
+}
+#identityBtn {
+    background-color: #1569C7;
+    border-radius: 16px;
+    border: 1px solid #18ab29;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 9px 25px;
+    text-decoration: none;
+}

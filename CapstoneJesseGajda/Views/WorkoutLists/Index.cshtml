@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CapstoneJesseGajda.Models.WorkoutList>
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var user = await UserManager.GetUserAsync(User);
+    var userGeneratedID = user.Id;
+    <h1>Custom Exercise List</h1>
+    <p>
+        <a asp-action="Create">Create New Exercise</a>
+    </p>
+   
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    Exercise Name
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Where(x => x.UserId == userGeneratedID))
+            {
+            <tr>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.WorkoutId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.WorkoutId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.WorkoutId">Delete</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Exercise_Name)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+<link rel="stylesheet" type="text/css" href="~/css/WorkoutList.css" />

@@ -1,0 +1,58 @@
+﻿@model CapstoneJesseGajda.Models.HomeIndexModel
+
+<div class="container body-content">
+    <div class="row frontPageSplash">
+        <div class="col-md-6 frontPageLearn">
+            <div class="frontPageHeading">Learn, Collaborate, Share Knowledge</div>
+            <p class="frontpageSubHeading">JGFitness Forum is the world's fastest growing forum</p>
+            <div>
+                <form asp-controller="Search" asp-action="Search" method="post">
+                    <input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Search.." />
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-3" id="forumBtn">
+                <a asp-controller="Forum" asp-action="Index" class="btn btn-back">Forum Topics</a>
+            </div>
+        </div>
+    </div>
+    <div class="row frontPageContent">
+        <h3 id="latestPosts">Latest Posts</h3>
+        <table class="table table-hover" id="latestPostsTable">
+            <tbody>
+                @foreach(var posts in Model.LatestPosts)
+                {
+                    <tr>
+                        <td>
+                            <div class="forumLogo" style="background-image: url(@posts.Forum.ImageUrl);"></div>
+                            <div class="postTitle">
+                                <a asp-controller="Post" asp-action="Index" asp-route-id="@posts.Id">
+                                    @posts.Title
+                                </a>
+                            </div>
+                            <div class="postsubTitle">
+                                @if(posts.RepliesCount == 1)
+                                {
+                                    <span>@posts.RepliesCount Reply</span>
+                                }
+                                @if(posts.RepliesCount == 0)
+                                {
+                                    <span>No Replies</span>
+                                }
+                                else
+                                {
+                                    <span>@posts.RepliesCount Replies</span>
+                                }
+                                <span class="postUser">
+                                <a asp-controller="Profile" asp-action="Detail" asp-route-id="@posts.AuthorId">
+                                    @posts.Author</a>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

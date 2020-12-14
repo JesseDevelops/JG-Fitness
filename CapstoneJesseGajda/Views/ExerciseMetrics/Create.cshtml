@@ -1,0 +1,58 @@
+﻿@model CapstoneJesseGajda.Models.ExerciseMetrics
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var user = await UserManager.GetUserAsync(User);
+    var userGeneratedID = user.Id;
+
+    <h2>Record your latest exercise weight here!</h2>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Exercise Type:</label>
+                    <select asp-for="ExerciseId" asp-items="ViewBag.ExerciseID" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Weight Used(KG)</label>
+                    <input asp-for="WeightUsed" class="form-control" />
+                    <span asp-validation-for="WeightUsed" class="text-danger"></span>
+                </div>
+                <div class="form-group" id="createUserIdMetrics">
+                    <label asp-for="UserId" class="control-label"></label>
+                    <input asp-for="UserId" value="@userGeneratedID" class="form-control" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+}
+<link rel="stylesheet" type="text/css" href="~/css/Metrics.css" />
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
