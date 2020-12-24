@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <UserSecretsId>aspnet-CapstoneJesseGajda-DAED1D80-AD53-4E9A-B305-5DAE9B9FBA9A</UserSecretsId>
+    <UserSecretsId>0bb06269-eb69-404b-b0ce-5b399ef865d1</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
