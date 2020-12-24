@@ -26,7 +26,7 @@ namespace CapstoneJesseGajda.Models
         public string NewCustomUsername { get; set; }
         public int Rating { get; set; }
         public string ProfileImageUrl { get; set; }
-
+        public string lastVisitedPage { get; set; }
 
     }
 }

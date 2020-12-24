@@ -160,6 +160,7 @@ namespace CapstoneJesseGajda.Areas.Identity.Pages.Account.Manage
             user.UserCountry = Input.UserCountry;
             user.UserPostalCode = Input.UserPostalCode;
 
+            await _userManager.UpdateAsync(user);
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();

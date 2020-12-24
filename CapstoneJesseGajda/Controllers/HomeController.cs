@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using CapstoneJesseGajda.Models;
 using Microsoft.AspNetCore.Authorization;
 using CapstoneJesseGajda.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace CapstoneJesseGajda.Controllers
 {
