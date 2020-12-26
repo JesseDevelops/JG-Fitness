@@ -27,6 +27,12 @@ namespace CapstoneJesseGajda.Controllers
             return View(await _context.UserBMI.ToListAsync());
         }
 
+        public ActionResult GetChartData()
+        {
+            return Json(_context.UserBMI.
+                Select(p => new { p.BMI, p.Date, p.Bmi_Id, p.UserId }), new Newtonsoft.Json.JsonSerializerSettings());
+        }
+
         // GET: UserBMIs/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -7,9 +7,25 @@
 #userIdIndex{
     opacity: 0;
 }
+#metricsSortBtn {
+    background-color: #1569C7;
+    border-radius: 16px;
+    border: 1px solid #18ab29;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 9px 25px;
+    text-decoration: none;
+}
 
-#indexMetricsExerciseddl{
-    width:25%;
+#formMetricId{
+    padding-left: 15px;
+}
+
+#indexMetricsExerciseddl {
+    width: 25%;
 }
 
 .index-end-exercise .jumbotron {
@@ -21,10 +37,11 @@
 }
 
 
-    .index-end-exercise .jumbotron h1 {
+.index-end-exercise .jumbotron h1 {
         font-size: 43px;
         color: white;
-    }
+}
 #indexExerciseTag{
     font-size: 25px;
 }
+

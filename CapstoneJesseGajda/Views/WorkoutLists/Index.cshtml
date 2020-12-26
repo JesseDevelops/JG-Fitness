@@ -16,32 +16,45 @@
     <p>
         <a asp-action="Create">Create New Exercise</a>
     </p>
-   
-    <table class="table">
-        <thead>
-            <tr>
-                <th></th>
-                <th>
-                    Exercise Name
-                </th>
 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Where(x => x.UserId == userGeneratedID))
-            {
-            <tr>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.WorkoutId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.WorkoutId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.WorkoutId">Delete</a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Exercise_Name)
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
+    <div class="row">
+        @foreach (var item in Model.Where(x => x.UserId == userGeneratedID))
+        {
+            <div class="col-md-2">
+                    <div class="col-sm-12">
+                        <div class="thumbnail">
+                            <h4 id="thumbnail-label" class="text-center">@Html.DisplayFor(modelItem => item.Exercise_Name)</h4>
+                            <div class="thumbnail-description smaller text-center">
+                                <a asp-action="Edit" asp-route-id="@item.WorkoutId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.WorkoutId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.WorkoutId">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+        }
+
+    </div>
+
 }
 <link rel="stylesheet" type="text/css" href="~/css/WorkoutList.css" />
+<style>
+    .thumbnail {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+        transition: 0.3s;
+        min-width: 40%;
+        border-radius: 5px;
+    }
+
+    .thumbnail-description {
+        min-height: 40px;
+    }
+
+    .thumbnail:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+    }
+</style>

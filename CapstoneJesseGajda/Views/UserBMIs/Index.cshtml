@@ -12,8 +12,8 @@
 {
     var user = await UserManager.GetUserAsync(User);
     var userGeneratedID = user.Id;
-    
-    
+
+
 
     <div class="row">
         <div class="col-md-4"></div>
@@ -139,4 +139,17 @@
         <div class="col-md-2"></div>
     </div>
 }
-    <link rel="stylesheet" type="text/css" href="~/css/BMI.css" />
+<link rel="stylesheet" type="text/css" href="~/css/BMI.css" />
+
+@*<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type ="text/javascript">
+    google.load("visualization", "1", { packages: ["corechart"] });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', @Model.BMI);
+
+    }
+</script>*@
+

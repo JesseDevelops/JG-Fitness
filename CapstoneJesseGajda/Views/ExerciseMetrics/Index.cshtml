@@ -18,13 +18,13 @@
     <p>
         <a asp-action="Create">Create New Exercise Metric</a>
     </p>
-    <form asp-action="Index" method="get">
+    <form id="formMetricId" asp-action="Index" method="get">
         <div class="row">
             <div class="col">
                 <div class="form-group">
                     <p>Exercise:</p>
                     <select class="form-control" id="indexMetricsExerciseddl" asp-for="@Model.FirstOrDefault().ExerciseId" asp-items="@ViewBag.ExerciseID"></select>
-                    <input  type="submit" value="Sort By Exercise" />
+                    <input id="metricsSortBtn"  type="submit" value="Sort By Exercise" />
                     <input value="@userGeneratedID" name="userId" id="userIdIndex" readonly />
                 </div>
             </div>
@@ -33,7 +33,7 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <p id="indexExerciseTag">@ViewBag.ExerciseName</p>
+            <p class="text-center" id="indexExerciseTag">@ViewBag.ExerciseName</p>
         </div>
         <div class="col-md-4"></div>
     </div>
@@ -75,8 +75,6 @@
                             If my mind can conveive it and my heart can believe it - then I can achieve it.
                         </h1>
                     </div>
-
-
                 </div>
             </div>
         </div>
